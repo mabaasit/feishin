@@ -303,9 +303,9 @@ export const OOA_SERVER_CONFIG: ServerListItem = {
     name: 'jellyfin',
     savePassword: false,
     type: ServerType.JELLYFIN,
-    url: 'https://demo.jellyfin.org/stable',
+    url: 'oathofasr.com/api/listen',
     userId: null,
-    username: 'demo',
+    username: 'oathofasr-ui',
 };
 
 export const OOA_CONFIG = {
