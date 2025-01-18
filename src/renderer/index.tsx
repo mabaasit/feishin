@@ -22,7 +22,9 @@ const PersistQueryClientProvider = ({
 }: { children: React.ReactNode } & PersistQueryClientProviderProps) => {
     return (
         <AsrApp>
-            <UnwrappedPersistQueryClientProvider {...props}>{children}</UnwrappedPersistQueryClientProvider>
+            <UnwrappedPersistQueryClientProvider {...props}>
+                {children}
+            </UnwrappedPersistQueryClientProvider>
         </AsrApp>
     );
 };
