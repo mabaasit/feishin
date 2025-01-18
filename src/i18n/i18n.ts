@@ -2,117 +2,15 @@ import { PostProcessorModule, TOptions, StringMap } from 'i18next';
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import en from './locales/en.json';
-import es from './locales/es.json';
-import fr from './locales/fr.json';
-import ja from './locales/ja.json';
-import pl from './locales/pl.json';
-import zhHans from './locales/zh-Hans.json';
-import de from './locales/de.json';
-import it from './locales/it.json';
-import ru from './locales/ru.json';
-import ptBr from './locales/pt-BR.json';
-import sr from './locales/sr.json';
-import sv from './locales/sv.json';
-import cs from './locales/cs.json';
-import nbNO from './locales/nb-NO.json';
-import nl from './locales/nl.json';
-import zhHant from './locales/zh-Hant.json';
-import fa from './locales/fa.json';
-import ko from './locales/ko.json';
 
 const resources = {
     en: { translation: en },
-    es: { translation: es },
-    de: { translation: de },
-    it: { translation: it },
-    ru: { translation: ru },
-    'pt-BR': { translation: ptBr },
-    fa: { translation: fa },
-    fr: { translation: fr },
-    ja: { translation: ja },
-    ko: { translation: ko },
-    pl: { translation: pl },
-    'zh-Hans': { translation: zhHans },
-    'zh-Hant': { translation: zhHant },
-    sr: { translation: sr },
-    sv: { translation: sv },
-    cs: { translation: cs },
-    nl: { translation: nl },
-    'nb-NO': { translation: nbNO },
 };
 
 export const languages = [
     {
         label: 'English',
         value: 'en',
-    },
-    {
-        label: 'Čeština',
-        value: 'cs',
-    },
-    {
-        label: 'Español',
-        value: 'es',
-    },
-    {
-        label: 'Deutsch',
-        value: 'de',
-    },
-    {
-        label: 'Français',
-        value: 'fr',
-    },
-    {
-        label: 'Italiano',
-        value: 'it',
-    },
-    {
-        label: '日本語',
-        value: 'ja',
-    },
-    {
-        label: '한국어',
-        value: 'ko',
-    },
-    {
-        label: 'Nederlands',
-        value: 'nl',
-    },
-    {
-        label: 'Norsk (Bokmål)',
-        value: 'nb-NO',
-    },
-    {
-        label: 'فارسی',
-        value: 'fa',
-    },
-    {
-        label: 'Português (Brasil)',
-        value: 'pt-BR',
-    },
-    {
-        label: 'Polski',
-        value: 'pl',
-    },
-    {
-        label: 'Русский',
-        value: 'ru',
-    },
-    {
-        label: 'Srpski',
-        value: 'sr',
-    },
-    {
-        label: 'Svenska',
-        value: 'sv',
-    },
-    {
-        label: '简体中文',
-        value: 'zh-Hans',
-    },
-    {
-        label: '繁體中文',
-        value: 'zh-Hant',
     },
 ];
 

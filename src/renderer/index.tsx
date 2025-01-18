@@ -1,8 +1,9 @@
+import React from 'react';
 import { Notifications } from '@mantine/notifications';
 import {
     PersistedClient,
     Persister,
-    PersistQueryClientProvider as _PersistQueryClientProvider,
+    PersistQueryClientProvider as UnwrappedPersistQueryClientProvider,
     PersistQueryClientProviderProps,
 } from '@tanstack/react-query-persist-client';
 import { get, set, del } from 'idb-keyval';
@@ -10,7 +11,6 @@ import { createRoot } from 'react-dom/client';
 import { App } from './app';
 import { queryClient } from './lib/react-query';
 import { AsrApp } from './asr';
-
 import 'overlayscrollbars/overlayscrollbars.css';
 import { OOA_CONFIG } from './asr-config';
 
@@ -22,7 +22,7 @@ const PersistQueryClientProvider = ({
 }: { children: React.ReactNode } & PersistQueryClientProviderProps) => {
     return (
         <AsrApp>
-            <_PersistQueryClientProvider {...props}>{children}</_PersistQueryClientProvider>
+            <UnwrappedPersistQueryClientProvider {...props}>{children}</UnwrappedPersistQueryClientProvider>
         </AsrApp>
     );
 };
