@@ -367,7 +367,7 @@ export const AlbumArtistDetailContent = ({ background }: AlbumArtistDetailConten
                 <Group spacing="md">
                     <PlayButton onClick={() => handlePlay(playButtonBehavior)} />
                     <Group spacing="xs">
-                        <Button
+                        {/* <Button
                             compact
                             loading={
                                 createFavoriteMutation.isLoading || deleteFavoriteMutation.isLoading
@@ -383,7 +383,7 @@ export const AlbumArtistDetailContent = ({ background }: AlbumArtistDetailConten
                             ) : (
                                 <RiHeartLine size={20} />
                             )}
-                        </Button>
+                        </Button> */}
                         <Button
                             compact
                             variant="subtle"
@@ -416,7 +416,7 @@ export const AlbumArtistDetailContent = ({ background }: AlbumArtistDetailConten
                         {t('page.albumArtistDetail.viewAllTracks')}
                     </Button>
                 </Group>
-                {showGenres ? (
+                {/* {showGenres ? (
                     <Box component="section">
                         <Group spacing="sm">
                             {detailQuery?.data?.genres?.map((genre) => (
@@ -436,7 +436,7 @@ export const AlbumArtistDetailContent = ({ background }: AlbumArtistDetailConten
                             ))}
                         </Group>
                     </Box>
-                ) : null}
+                ) : null} */}
                 {externalLinks ? (
                     <Box component="section">
                         <Group spacing="sm">

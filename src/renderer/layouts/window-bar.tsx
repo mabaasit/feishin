@@ -12,6 +12,7 @@ import macMax from './assets/max-mac.png';
 import macMinHover from './assets/min-mac-hover.png';
 import macMin from './assets/min-mac.png';
 import appIcon from '../../../assets/icons/32x32.png';
+import { OOA_CONFIG } from '../asr-config';
 
 const localSettings = isElectron() ? window.electron.localSettings : null;
 
@@ -227,7 +228,7 @@ export const WindowBar = () => {
         ? currentSong?.artistName
             ? `${statusString}${queueString}${currentSong?.name} — ${currentSong?.artistName}`
             : `${statusString}${queueString}${currentSong?.name}`
-        : 'Feishin';
+        : OOA_CONFIG.ui.title;
     document.title = title;
 
     const [max, setMax] = useState(localSettings?.env.START_MAXIMIZED || false);

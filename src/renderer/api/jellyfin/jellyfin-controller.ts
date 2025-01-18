@@ -17,6 +17,7 @@ import { JFSongListSort, JFSortOrder } from '/@/renderer/api/jellyfin.types';
 import { ServerFeature } from '/@/renderer/api/features-types';
 import { VersionInfo, getFeatures } from '/@/renderer/api/utils';
 import chunk from 'lodash/chunk';
+import { OOA_CONFIG } from '../../asr-config';
 
 const formatCommaDelimitedString = (value: string[]) => {
     return value.join(',');
@@ -811,6 +812,9 @@ export const JellyfinController: ControllerEndpoint = {
         return null;
     },
     scrobble: async (args) => {
+        if (!OOA_CONFIG.apiSettings.trackScrollable) {
+            return null;
+        }
         const { query, apiClientProps } = args;
 
         const position = query.position && Math.round(query.position);

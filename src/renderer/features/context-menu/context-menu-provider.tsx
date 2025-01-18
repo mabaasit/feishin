@@ -142,7 +142,7 @@ export const ContextMenuProvider = ({ children }: ContextMenuProviderProps) => {
             let validMenuItems = menuItems.filter((item) => !disabledItems[item.id]);
 
             if (serverType === ServerType.JELLYFIN) {
-                validMenuItems = menuItems.filter(
+                validMenuItems = validMenuItems.filter(
                     (item) => !JELLYFIN_IGNORED_MENU_ITEMS.includes(item.id),
                 );
             }

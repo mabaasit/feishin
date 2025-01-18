@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import { Group, Stack } from '@mantine/core';
 import { useLocalStorage } from '@mantine/hooks';
 import { RiExternalLinkLine } from 'react-icons/ri';
+import { OOA_CONFIG } from './asr-config';
 import { Button, Dialog, Text } from './components';
 import packageJson from '../../package.json';
 
@@ -14,6 +15,9 @@ export const IsUpdatedDialog = () => {
         setValue(version);
     }, [setValue, version]);
 
+    if (!OOA_CONFIG.ui.showUpdateNotification) {
+        return null;
+    }
     return (
         <Dialog
             opened={value !== version}

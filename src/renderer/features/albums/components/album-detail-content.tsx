@@ -337,7 +337,7 @@ export const AlbumDetailContent = ({ tableRef, background }: AlbumDetailContentP
                     >
                         <Group>
                             <PlayButton onClick={() => handlePlay(playButtonBehavior)} />
-                            <Button
+                            {/* <Button
                                 compact
                                 loading={
                                     createFavoriteMutation.isLoading ||
@@ -354,7 +354,7 @@ export const AlbumDetailContent = ({ tableRef, background }: AlbumDetailContentP
                                 ) : (
                                     <RiHeartLine size={20} />
                                 )}
-                            </Button>
+                            </Button> */}
                             <Button
                                 compact
                                 variant="subtle"
@@ -367,7 +367,7 @@ export const AlbumDetailContent = ({ tableRef, background }: AlbumDetailContentP
                             </Button>
                         </Group>
 
-                        <Popover position="bottom-end">
+                        {/* <Popover position="bottom-end">
                             <Popover.Target>
                                 <Button
                                     compact
@@ -380,30 +380,9 @@ export const AlbumDetailContent = ({ tableRef, background }: AlbumDetailContentP
                             <Popover.Dropdown>
                                 <TableConfigDropdown type="albumDetail" />
                             </Popover.Dropdown>
-                        </Popover>
+                        </Popover> */}
                     </Group>
                 </Box>
-                {showGenres && (
-                    <Box component="section">
-                        <Group spacing="sm">
-                            {detailQuery?.data?.genres?.map((genre) => (
-                                <Button
-                                    key={`genre-${genre.id}`}
-                                    compact
-                                    component={Link}
-                                    radius={0}
-                                    size="md"
-                                    to={generatePath(genreRoute, {
-                                        genreId: genre.id,
-                                    })}
-                                    variant="outline"
-                                >
-                                    {genre.name}
-                                </Button>
-                            ))}
-                        </Group>
-                    </Box>
-                )}
                 {externalLinks ? (
                     <Box component="section">
                         <Group spacing="sm">

@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { ColDef } from '@ag-grid-community/core';
 import isElectron from 'is-electron';
+import _ from 'lodash';
 import { generatePath } from 'react-router';
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
@@ -25,6 +26,7 @@ import i18n from '/@/i18n/i18n';
 import { usePlayerStore } from '/@/renderer/store/player.store';
 import { mergeOverridingColumns } from '/@/renderer/store/utils';
 import type { ContextMenuItemType } from '/@/renderer/features/context-menu';
+import { OOA_CONFIG } from '../asr-config';
 
 const utils = isElectron() ? window.electron.utils : null;
 
@@ -68,7 +70,7 @@ export const sidebarItems = [
         route: AppRoute.LIBRARY_ALBUM_ARTISTS,
     },
     {
-        disabled: false,
+        disabled: true,
         id: 'Genres',
         label: i18n.t('page.sidebar.genres'),
         route: AppRoute.LIBRARY_GENRES,
@@ -728,7 +730,7 @@ export const useSettingsStore = create<SettingsSlice>()(
                         });
                     },
                 },
-                ...initialState,
+                ..._.merge(initialState, OOA_CONFIG.uiSettings),
             })),
             { name: 'store_settings' },
         ),

@@ -12,6 +12,7 @@ import { SidebarIcon } from '/@/renderer/features/sidebar/components/sidebar-ico
 import { AppMenu } from '/@/renderer/features/titlebar/components/app-menu';
 import { SidebarItemType, useGeneralSettings, useWindowSettings } from '/@/renderer/store';
 import { Platform } from '/@/renderer/types';
+import { OOA_CONFIG } from '/@/renderer/asr-config';
 
 const SidebarContainer = styled(motion.div)<{ $windowBarStyle: Platform }>`
     display: flex;
@@ -22,6 +23,15 @@ const SidebarContainer = styled(motion.div)<{ $windowBarStyle: Platform }>`
             ? 'calc(100vh - 149px)'
             : 'calc(100vh - 119px)'};
     user-select: none;
+`;
+
+const SidebarLogo = styled.div`
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+`;
+const SidebarLogoImage = styled.img`
+    height: 50px;
 `;
 
 export const CollapsedSidebar = () => {
@@ -67,6 +77,12 @@ export const CollapsedSidebar = () => {
                 scrollHideDelay={0}
                 scrollbarSize={8}
             >
+                <SidebarLogo>
+                    <SidebarLogoImage
+                        loading="eager"
+                        src={OOA_CONFIG.ui.logo}
+                    />
+                </SidebarLogo>
                 {sidebarCollapsedNavigation && (
                     <Group
                         grow
@@ -89,7 +105,7 @@ export const CollapsedSidebar = () => {
                         </CollapsedSidebarButton>
                     </Group>
                 )}
-                <DropdownMenu position="right-start">
+                {/* <DropdownMenu position="right-start">
                     <DropdownMenu.Target>
                         <CollapsedSidebarItem
                             activeIcon={<RiMenuFill size="25" />}
@@ -101,7 +117,7 @@ export const CollapsedSidebar = () => {
                     <DropdownMenu.Dropdown>
                         <AppMenu />
                     </DropdownMenu.Dropdown>
-                </DropdownMenu>
+                </DropdownMenu> */}
                 {sidebarItemsWithRoute.map((item) => (
                     <CollapsedSidebarItem
                         key={item.id}

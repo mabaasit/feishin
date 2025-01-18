@@ -213,13 +213,13 @@ const tableColumns: { [key: string]: ColDef } = {
             params.data ? params.data.duration : undefined,
         width: 70,
     },
-    genre: {
-        cellRenderer: GenreCell,
-        colId: TableColumn.GENRE,
-        headerName: i18n.t('table.column.genre'),
-        valueGetter: (params: ValueGetterParams) => (params.data ? params.data.genres : undefined),
-        width: 100,
-    },
+    // genre: {
+    //     cellRenderer: GenreCell,
+    //     colId: TableColumn.GENRE,
+    //     headerName: i18n.t('table.column.genre'),
+    //     valueGetter: (params: ValueGetterParams) => (params.data ? params.data.genres : undefined),
+    //     width: 100,
+    // },
     lastPlayedAt: {
         cellRenderer: (params: ICellRendererParams) => GenericCell(params, { position: 'center' }),
         colId: TableColumn.LAST_PLAYED,
@@ -412,19 +412,19 @@ const tableColumns: { [key: string]: ColDef } = {
             params.data ? params.data.trackNumber : undefined,
         width: 80,
     },
-    userFavorite: {
-        cellClass: (params) => (params.value ? 'visible ag-cell-favorite' : 'ag-cell-favorite'),
-        cellRenderer: FavoriteCell,
-        colId: TableColumn.USER_FAVORITE,
-        field: 'userFavorite',
-        headerComponent: (params: IHeaderParams) =>
-            GenericTableHeader(params, { position: 'center', preset: 'userFavorite' }),
-        headerName: i18n.t('table.column.favorite'),
-        suppressSizeToFit: true,
-        valueGetter: (params: ValueGetterParams) =>
-            params.data ? params.data.userFavorite : undefined,
-        width: 50,
-    },
+    // userFavorite: {
+    //     cellClass: (params) => (params.value ? 'visible ag-cell-favorite' : 'ag-cell-favorite'),
+    //     cellRenderer: FavoriteCell,
+    //     colId: TableColumn.USER_FAVORITE,
+    //     field: 'userFavorite',
+    //     headerComponent: (params: IHeaderParams) =>
+    //         GenericTableHeader(params, { position: 'center', preset: 'userFavorite' }),
+    //     headerName: i18n.t('table.column.favorite'),
+    //     suppressSizeToFit: true,
+    //     valueGetter: (params: ValueGetterParams) =>
+    //         params.data ? params.data.userFavorite : undefined,
+    //     width: 50,
+    // },
     userRating: {
         cellClass: (params) =>
             params.value?.userRating ? 'visible ag-cell-rating' : 'ag-cell-rating',

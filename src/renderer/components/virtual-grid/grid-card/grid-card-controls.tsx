@@ -176,7 +176,7 @@ export const GridCardControls = ({
                     <RiPlayFill size={25} />
                 </PlayButton>
                 <BottomControls>
-                    {itemType !== LibraryItem.PLAYLIST && (
+                    {/* {itemType !== LibraryItem.PLAYLIST && (
                         <SecondaryButton
                             p={5}
                             variant="subtle"
@@ -193,7 +193,7 @@ export const GridCardControls = ({
                                 )}
                             </FavoriteWrapper>
                         </SecondaryButton>
-                    )}
+                    )} */}
 
                     <SecondaryButton
                         p={5}

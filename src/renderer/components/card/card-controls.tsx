@@ -138,7 +138,7 @@ export const CardControls = ({
                     <RiPlayFill size={25} />
                 </PlayButton>
                 <Group spacing="xs">
-                    <SecondaryButton
+                    {/* <SecondaryButton
                         disabled
                         p={5}
                         sx={{ svg: { fill: 'white !important' } }}
@@ -154,7 +154,7 @@ export const CardControls = ({
                                 />
                             )}
                         </FavoriteWrapper>
-                    </SecondaryButton>
+                    </SecondaryButton> */}
                     <SecondaryButton
                         p={5}
                         sx={{ svg: { fill: 'white !important' } }}

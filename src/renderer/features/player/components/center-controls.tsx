@@ -286,7 +286,7 @@ export const CenterControls = ({ playersRef }: CenterControlsProps) => {
                         onClick={handleToggleRepeat}
                     />
 
-                    <PlayerButton
+                    {/* <PlayerButton
                         icon={<BsDice3 size={buttonSize} />}
                         tooltip={{
                             label: t('player.playRandom', { postProcess: 'sentenceCase' }),
@@ -298,7 +298,7 @@ export const CenterControls = ({ playersRef }: CenterControlsProps) => {
                                 queryClient,
                             })
                         }
-                    />
+                    /> */}
                 </ButtonsContainer>
             </ControlsContainer>
             <SliderContainer>

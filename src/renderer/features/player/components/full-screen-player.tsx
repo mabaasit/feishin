@@ -126,7 +126,7 @@ const Controls = () => {
             >
                 <RiArrowDownSLine size="2rem" />
             </Button>
-            <Popover position="bottom-start">
+            {/* <Popover position="bottom-start">
                 <Popover.Target>
                     <Button
                         compact
@@ -401,7 +401,7 @@ const Controls = () => {
                     <Divider my="sm" />
                     <TableConfigDropdown type="fullScreen" />
                 </Popover.Dropdown>
-            </Popover>
+            </Popover> */}
         </Group>
     );
 };

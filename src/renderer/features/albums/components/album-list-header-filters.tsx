@@ -444,7 +444,7 @@ export const AlbumListHeaderFilters = ({
                             size="md"
                             variant="subtle"
                         >
-                            {sortByLabel}
+                            Sort: {sortByLabel}
                         </Button>
                     </DropdownMenu.Target>
                     <DropdownMenu.Dropdown>
@@ -465,7 +465,7 @@ export const AlbumListHeaderFilters = ({
                     sortOrder={filter.sortOrder}
                     onToggle={handleToggleSortOrder}
                 />
-                {server?.type === ServerType.JELLYFIN && (
+                {/* {server?.type === ServerType.JELLYFIN && (
                     <>
                         <Divider orientation="vertical" />
                         <DropdownMenu position="bottom-start">
@@ -518,7 +518,7 @@ export const AlbumListHeaderFilters = ({
                 >
                     <RiFilterFill size="1.3rem" />
                 </Button>
-                <Divider orientation="vertical" />
+                <Divider orientation="vertical" /> */}
                 <Button
                     compact
                     size="md"
@@ -568,7 +568,7 @@ export const AlbumListHeaderFilters = ({
                     </DropdownMenu.Dropdown>
                 </DropdownMenu>
             </Group>
-            <Group
+            {/* <Group
                 noWrap
                 spacing="sm"
             >
@@ -619,7 +619,7 @@ export const AlbumListHeaderFilters = ({
                             onClick={handleSetViewType}
                         >
                             Table (paginated)
-                        </DropdownMenu.Item> */}
+                        </DropdownMenu.Item>
                         <DropdownMenu.Divider />
                         <DropdownMenu.Label>
                             {t('table.config.general.itemSize', { postProcess: 'sentenceCase' })}
@@ -681,7 +681,7 @@ export const AlbumListHeaderFilters = ({
                         )}
                     </DropdownMenu.Dropdown>
                 </DropdownMenu>
-            </Group>
+            </Group> */}
         </Flex>
     );
 };

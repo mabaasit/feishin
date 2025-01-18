@@ -370,7 +370,7 @@ export const AlbumArtistListHeaderFilters = ({
                             size="md"
                             variant="subtle"
                         >
-                            {sortByLabel}
+                            Sort: {sortByLabel}
                         </Button>
                     </DropdownMenu.Target>
                     <DropdownMenu.Dropdown>
@@ -391,7 +391,7 @@ export const AlbumArtistListHeaderFilters = ({
                     sortOrder={filter.sortOrder}
                     onToggle={handleToggleSortOrder}
                 />
-                {server?.type === ServerType.JELLYFIN && (
+                {/* {server?.type === ServerType.JELLYFIN && (
                     <>
                         <Divider orientation="vertical" />
                         <DropdownMenu position="bottom-start">
@@ -419,7 +419,7 @@ export const AlbumArtistListHeaderFilters = ({
                             </DropdownMenu.Dropdown>
                         </DropdownMenu>
                     </>
-                )}
+                )} */}
                 <Divider orientation="vertical" />
                 <Button
                     compact
@@ -430,7 +430,7 @@ export const AlbumArtistListHeaderFilters = ({
                 >
                     <RiRefreshLine size="1.3rem" />
                 </Button>
-                <Divider orientation="vertical" />
+                {/* <Divider orientation="vertical" />
                 <DropdownMenu position="bottom-start">
                     <DropdownMenu.Target>
                         <Button
@@ -451,9 +451,9 @@ export const AlbumArtistListHeaderFilters = ({
                             })}
                         </DropdownMenu.Item>
                     </DropdownMenu.Dropdown>
-                </DropdownMenu>
+                </DropdownMenu> */}
             </Group>
-            <Group>
+            {/* <Group>
                 <DropdownMenu
                     position="bottom-end"
                     width={425}
@@ -504,7 +504,7 @@ export const AlbumArtistListHeaderFilters = ({
                             onClick={handleSetViewType}
                         >
                             Table (paginated)
-                        </DropdownMenu.Item> */}
+                        </DropdownMenu.Item>
                         <DropdownMenu.Divider />
                         <DropdownMenu.Label>
                             {t('table.config.general.itemSize', { postProcess: 'sentenceCase' })}
@@ -583,7 +583,7 @@ export const AlbumArtistListHeaderFilters = ({
                         )}
                     </DropdownMenu.Dropdown>
                 </DropdownMenu>
-            </Group>
+            </Group> */}
         </Flex>
     );
 };

@@ -487,7 +487,7 @@ export const SongListHeaderFilters = ({
                             size="md"
                             variant="subtle"
                         >
-                            {sortByLabel}
+                            Sort: {sortByLabel}
                         </Button>
                     </DropdownMenu.Target>
                     <DropdownMenu.Dropdown>
@@ -512,7 +512,7 @@ export const SongListHeaderFilters = ({
                         />
                     </>
                 )}
-                {server?.type === ServerType.JELLYFIN && (
+                {/* {server?.type === ServerType.JELLYFIN && (
                     <>
                         <Divider orientation="vertical" />
                         <DropdownMenu position="bottom-start">
@@ -563,7 +563,7 @@ export const SongListHeaderFilters = ({
                 >
                     <RiFilterFill size="1.3rem" />
                 </Button>
-                <Divider orientation="vertical" />
+                <Divider orientation="vertical" /> */}
                 <Button
                     compact
                     size="md"
@@ -614,7 +614,7 @@ export const SongListHeaderFilters = ({
                     </DropdownMenu.Dropdown>
                 </DropdownMenu>
             </Group>
-            <Group
+            {/* <Group
                 noWrap
                 spacing="sm"
             >
@@ -662,7 +662,7 @@ export const SongListHeaderFilters = ({
                             onClick={handleSetViewType}
                         >
                             Table (paginated)
-                        </DropdownMenu.Item> */}
+                        </DropdownMenu.Item>
                         <DropdownMenu.Divider />
                         <DropdownMenu.Label>
                             {t('table.config.general.size', { postProcess: 'sentenceCase' })}
@@ -725,7 +725,7 @@ export const SongListHeaderFilters = ({
                         </DropdownMenu.Item>
                     </DropdownMenu.Dropdown>
                 </DropdownMenu>
-            </Group>
+            </Group> */}
         </Flex>
     );
 };

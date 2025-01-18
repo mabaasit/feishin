@@ -2,14 +2,30 @@ import { Notifications } from '@mantine/notifications';
 import {
     PersistedClient,
     Persister,
-    PersistQueryClientProvider,
+    PersistQueryClientProvider as _PersistQueryClientProvider,
+    PersistQueryClientProviderProps,
 } from '@tanstack/react-query-persist-client';
 import { get, set, del } from 'idb-keyval';
 import { createRoot } from 'react-dom/client';
 import { App } from './app';
 import { queryClient } from './lib/react-query';
+import { AsrApp } from './asr';
 
 import 'overlayscrollbars/overlayscrollbars.css';
+import { OOA_CONFIG } from './asr-config';
+
+// Creating a wrapper here to avoid having conflits when upstream is merged
+// and there are changes in root.render
+const PersistQueryClientProvider = ({
+    children,
+    ...props
+}: { children: React.ReactNode } & PersistQueryClientProviderProps) => {
+    return (
+        <AsrApp>
+            <_PersistQueryClientProvider {...props}>{children}</_PersistQueryClientProvider>
+        </AsrApp>
+    );
+};
 
 export function createIDBPersister(idbValidKey: IDBValidKey = 'reactQuery') {
     return {
@@ -26,7 +42,7 @@ export function createIDBPersister(idbValidKey: IDBValidKey = 'reactQuery') {
     } as Persister;
 }
 
-const indexedDbPersister = createIDBPersister('feishin');
+const indexedDbPersister = createIDBPersister(OOA_CONFIG.serverConfig.id);
 
 const container = document.getElementById('root')! as HTMLElement;
 const root = createRoot(container);
@@ -35,7 +51,7 @@ root.render(
     <PersistQueryClientProvider
         client={queryClient}
         persistOptions={{
-            buster: 'feishin',
+            buster: OOA_CONFIG.serverConfig.id,
             dehydrateOptions: {
                 dehydrateQueries: true,
                 shouldDehydrateQuery: (query) => {

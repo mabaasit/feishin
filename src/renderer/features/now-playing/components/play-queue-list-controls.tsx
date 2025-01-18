@@ -191,7 +191,7 @@ export const PlayQueueListControls = ({ type, tableRef }: PlayQueueListOptionsPr
                     <RiDeleteBinLine size="1.1rem" />
                 </Button>
             </Group>
-            <Group>
+            {/* <Group>
                 <Popover
                     position="top-end"
                     transitionProps={{ transition: 'fade' }}
@@ -212,7 +212,7 @@ export const PlayQueueListControls = ({ type, tableRef }: PlayQueueListOptionsPr
                         <TableConfigDropdown type={type} />
                     </Popover.Dropdown>
                 </Popover>
-            </Group>
+            </Group> */}
         </Group>
     );
 };

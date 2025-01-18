@@ -263,7 +263,7 @@ export const RightControls = () => {
                         />
                     </DropdownMenu.Dropdown>
                 </DropdownMenu>
-                <PlayerButton
+                {/* <PlayerButton
                     icon={
                         currentSong?.userFavorite ? (
                             <RiHeartFill
@@ -289,7 +289,7 @@ export const RightControls = () => {
                     }}
                     variant="secondary"
                     onClick={() => handleToggleFavorite(currentSong)}
-                />
+                /> */}
                 {!isMinWidth ? (
                     <PlayerButton
                         icon={<HiOutlineQueueList size="1.1rem" />}

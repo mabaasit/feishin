@@ -30,6 +30,7 @@ import {
 } from '/@/renderer/store';
 import { fadeIn } from '/@/renderer/styles';
 import { Platform } from '/@/renderer/types';
+import { OOA_CONFIG } from '/@/renderer/asr-config';
 
 const SidebarContainer = styled.div<{ $windowBarStyle: Platform }>`
     height: 100%;
@@ -66,6 +67,17 @@ const SidebarImage = styled.img`
     height: 100%;
     object-fit: var(--image-fit);
     background: var(--placeholder-bg);
+`;
+
+const SidebarLogoImage = styled.img`
+    height: 50px;
+`;
+const SidebarLogo = styled(motion.div)`
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 `;
 
 export const Sidebar = () => {
@@ -140,7 +152,14 @@ export const Sidebar = () => {
             ref={cq.ref}
             $windowBarStyle={windowBarStyle}
         >
-            <ActionBar />
+            {/* <ActionBar /> */}
+            <SidebarLogo>
+                <SidebarLogoImage
+                    loading="eager"
+                    src={OOA_CONFIG.ui.logo}
+                />
+                <h1>{OOA_CONFIG.ui.title}</h1>
+            </SidebarLogo>
             <Stack
                 h="100%"
                 justify="space-between"

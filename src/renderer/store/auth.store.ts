@@ -7,6 +7,7 @@ import { useAlbumArtistListDataStore } from '/@/renderer/store/album-artist-list
 import { useAlbumListDataStore } from '/@/renderer/store/album-list-data.store';
 import { useListStore } from '/@/renderer/store/list.store';
 import { ServerListItem } from '/@/renderer/api/types';
+import { OOA_CONFIG } from '../asr-config';
 
 export interface AuthState {
     currentServer: ServerListItem | null;
@@ -74,7 +75,7 @@ export const useAuthStore = create<AuthSlice>()(
                         });
                     },
                 },
-                currentServer: null,
+                currentServer: OOA_CONFIG.serverConfig,
                 deviceId: nanoid(),
                 serverList: {},
             })),
