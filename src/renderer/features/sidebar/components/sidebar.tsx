@@ -70,14 +70,18 @@ const SidebarImage = styled.img`
 `;
 
 const SidebarLogoImage = styled.img`
-    height: 50px;
+    height: 48px;
+`;
+const SidebarTitle = styled(motion.h2)`
+    color: white;
 `;
 const SidebarLogo = styled(motion.div)`
     display: flex;
-    gap: 10px;
+    gap: 8px;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 16px;
+    margin-left: 26px;
 `;
 
 export const Sidebar = () => {
@@ -158,7 +162,7 @@ export const Sidebar = () => {
                     loading="eager"
                     src={OOA_CONFIG.ui.logo}
                 />
-                <h1>{OOA_CONFIG.ui.title}</h1>
+                <SidebarTitle>{OOA_CONFIG.ui.title}</SidebarTitle>
             </SidebarLogo>
             <Stack
                 h="100%"

@@ -25,13 +25,13 @@ const uiSettings: RecursivePartial<SettingsState> = {
         updateInterval: 15,
     },
     font: {
-        builtIn: 'Inter',
+        builtIn: 'Raleway',
         custom: null,
         system: null,
         type: FontType.BUILT_IN,
     },
     general: {
-        accent: 'rgb(53, 116, 252)',
+        accent: 'rgb(34, 197, 94)',
         albumArtRes: undefined,
         albumBackground: false,
         albumBackgroundBlur: 6,
@@ -301,7 +301,7 @@ export const OOA_SERVER_CONFIG: ServerListItem = {
     },
     id: 'asr',
     name: 'jellyfin',
-    savePassword: true,
+    savePassword: false,
     type: ServerType.JELLYFIN,
     url: 'https://demo.jellyfin.org/stable',
     userId: null,
@@ -314,8 +314,8 @@ export const OOA_CONFIG = {
     },
     serverConfig: OOA_SERVER_CONFIG,
     ui: {
-        logo: '/favicon.ico',
         // this is for now till i fix webpack
+        logo: '/favicon.ico',
         showUpdateNotification: false,
         title: 'Oath of Asr',
     },
