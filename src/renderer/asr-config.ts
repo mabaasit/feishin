@@ -300,12 +300,12 @@ export const OOA_SERVER_CONFIG: ServerListItem = {
         sharingAlbumSong: false,
     },
     id: 'asr',
-    name: 'jellyfin',
+    name: '',
     savePassword: false,
     type: ServerType.JELLYFIN,
-    url: 'oathofasr.com/api/listen',
+    url: 'listen/api',
     userId: null,
-    username: 'oathofasr-ui',
+    username: '',
 };
 
 export const OOA_CONFIG = {

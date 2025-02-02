@@ -33,7 +33,7 @@ const configuration: webpack.Configuration = {
 
     output: {
         path: webpackPaths.distRendererPath,
-        publicPath: '/',
+        publicPath: '/listen',
         filename: 'renderer.dev.js',
         library: {
             type: 'umd',
@@ -133,10 +133,11 @@ const configuration: webpack.Configuration = {
         hot: true,
         headers: { 'Access-Control-Allow-Origin': '*' },
         static: {
-            publicPath: '/',
+            publicPath: '/listen',
         },
         historyApiFallback: {
             verbose: true,
+            disableDotRule: true,
         },
         setupMiddlewares(middlewares) {
             return middlewares;

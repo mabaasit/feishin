@@ -17,39 +17,27 @@ const LoadingContainer = styled.div`
     background: black;
 `;
 
-async function authenticate() {
-    const data = await api.controller.authenticate(
-        OOA_SERVER_CONFIG.url,
-        {
-            legacy: false,
-            password: '',
-            username: OOA_SERVER_CONFIG.username,
-        },
-        OOA_SERVER_CONFIG.type,
-    );
-    return {
-        ...OOA_SERVER_CONFIG,
-        ...data,
-    };
-}
-
 const useAuthenticatedSession = () => {
-    // Start with clear slate
-    localStorage.clear();
-    sessionStorage.clear();
-    const [status, setStatus] = useState<'loading' | 'error' | 'ready'>('loading');
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
     const { updateServer } = useAuthStoreActions();
+
     useEffect(() => {
-        authenticate()
-            .then((data) => {
-                setStatus('ready');
-                updateServer(OOA_SERVER_CONFIG.id, data);
-            })
-            .catch(() => {
-                setStatus('error');
-            });
+        updateServer(OOA_SERVER_CONFIG.id, OOA_SERVER_CONFIG);
     }, [updateServer]);
-    return status;
+
+    useEffect(() => {
+        api.controller
+            .getServerInfo({
+                apiClientProps: {
+                    server: OOA_SERVER_CONFIG,
+                },
+            })
+            .catch(() => setError(true))
+            .finally(() => setLoading(false));
+    }, []);
+
+    return { loading, error };
 };
 
 function AppLoading() {
@@ -78,12 +66,8 @@ function AppError() {
 }
 
 export const AsrApp = ({ children }: { children: React.ReactNode }) => {
-    const status = useAuthenticatedSession();
-    if (status === 'loading') {
-        return <AppLoading />;
-    }
-    if (status === 'error') {
-        return <AppError />;
-    }
+    const { loading, error } = useAuthenticatedSession();
+    if (loading) return <AppLoading />;
+    if (error) return <AppError />;
     return <>{children}</>;
 };
