@@ -18,8 +18,8 @@ const LoadingContainer = styled.div`
 `;
 
 const useAuthenticatedSession = () => {
-    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(true);
     const { updateServer } = useAuthStoreActions();
 
     useEffect(() => {
@@ -27,17 +27,23 @@ const useAuthenticatedSession = () => {
     }, [updateServer]);
 
     useEffect(() => {
-        api.controller
-            .getServerInfo({
-                apiClientProps: {
-                    server: OOA_SERVER_CONFIG,
-                },
-            })
-            .catch(() => setError(true))
-            .finally(() => setLoading(false));
-    }, []);
+        async function fetchInfo () {
+            try {
+                await api.controller.getServerInfo({
+                    apiClientProps: {
+                        server: OOA_SERVER_CONFIG,
+                    }
+                })
+            } catch (e) {
+                setError(true)
+            } finally {
+                setLoading(false)
+            }
+        };
+        void fetchInfo()
+    }, [])
 
-    return { loading, error };
+    return { error, loading }
 };
 
 function AppLoading() {
@@ -66,7 +72,7 @@ function AppError() {
 }
 
 export const AsrApp = ({ children }: { children: React.ReactNode }) => {
-    const { loading, error } = useAuthenticatedSession();
+    const { error, loading } = useAuthenticatedSession();
     if (loading) return <AppLoading />;
     if (error) return <AppError />;
     return <>{children}</>;
