@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { api } from './api';
+import { createAuthHeader } from './api/jellyfin/jellyfin-api';
 import { OOA_SERVER_CONFIG } from './asr-config';
 import { SurahAsr, TimeLoading } from './asr-svg';
 import { Button, Text, TextTitle } from './components';
@@ -23,17 +23,19 @@ const useAuthenticatedSession = () => {
     const { updateServer } = useAuthStoreActions();
 
     useEffect(() => {
-        updateServer(OOA_SERVER_CONFIG.id, OOA_SERVER_CONFIG);
-    }, [updateServer]);
-
-    useEffect(() => {
         async function fetchInfo () {
             try {
-                await api.controller.getServerInfo({
-                    apiClientProps: {
-                        server: OOA_SERVER_CONFIG,
-                    }
-                })
+                const res = await fetch(`${OOA_SERVER_CONFIG.url}/setup-and-init`, {
+                    headers: {
+                        Authorization: createAuthHeader(),
+                    },
+                });
+                const user = await res.json();
+                const data = {
+                    ...OOA_SERVER_CONFIG,
+                    userId: user.id,
+                };
+                updateServer(OOA_SERVER_CONFIG.id, data);
             } catch (e) {
                 setError(true)
             } finally {
@@ -41,7 +43,7 @@ const useAuthenticatedSession = () => {
             }
         };
         void fetchInfo()
-    }, [])
+    }, [updateServer])
 
     return { error, loading }
 };
