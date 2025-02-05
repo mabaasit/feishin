@@ -33,6 +33,7 @@ const useAuthenticatedSession = () => {
                 const user = await res.json();
                 const data = {
                     ...OOA_SERVER_CONFIG,
+                    credential: user.token,
                     userId: user.id,
                 };
                 updateServer(OOA_SERVER_CONFIG.id, data);
